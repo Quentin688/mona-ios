@@ -57,42 +57,6 @@ class UsernameChoiceViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func validButtonTapped(_ sender: UIButton) {
-        dismissKeyboard()
-        
-        let username = usernameTextField.text!
-        let password = "123456"
-        
-        MonaAPI.shared.register(username: username, email: nil, password: password) { result in
-            switch result {
-            case .success(let registerResponse):
-                let token = registerResponse.token
-                log.debug(token)
-                UserDefaults.Credentials.set(username, forKey: .username)
-                UserDefaults.Credentials.set(password, forKey: .password)
-                UserDefaults.Credentials.set(token, forKey: .token)
-                DispatchQueue.main.async {
-                    self.showApp()
-                }
-            case .failure(let httpError):
-                DispatchQueue.main.async {
-                    UIAlertController.presentMessage(from: self, title: Strings.error, message: httpError.errorDescription ?? "No error description", okCompletion: nil, presentCompletion: nil)
-                }
-            }
-        }
-    }
-    
-    private func showApp() {
-        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            let storyboard = UIStoryboard(name: "Tabbar", bundle: nil)
-            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
-            delegate.window?.rootViewController = tabBarController
-            delegate.window?.rootViewController!.view.alpha = 0.0;
-            UIView.animate(withDuration: 0.5, animations: {
-                delegate.window?.rootViewController!.view.alpha = 1.0
-            })
-        }
-    }
     
     private func setupViewController() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
@@ -100,7 +64,6 @@ class UsernameChoiceViewController: UIViewController {
         setupUsernameTextField()
         setupValidButton()
     }
-    
     
     private func setupUsernameTextField() {
         
@@ -138,6 +101,44 @@ class UsernameChoiceViewController: UIViewController {
             validButton.isEnabled = false
         }
     }
+    
+    @IBAction func validButtonTapped(_ sender: UIButton) {
+        dismissKeyboard()
+        
+        let username = usernameTextField.text!
+        let password = "123456"
+        
+        MonaAPI.shared.register(username: username, email: nil, password: password) { result in
+            switch result {
+            case .success(let registerResponse):
+                let token = registerResponse.token
+                log.debug(token)
+                UserDefaults.Credentials.set(username, forKey: .username)
+                UserDefaults.Credentials.set(password, forKey: .password)
+                UserDefaults.Credentials.set(token, forKey: .token)
+                DispatchQueue.main.async {
+                    self.showApp()
+                }
+            case .failure(let httpError):
+                DispatchQueue.main.async {
+                    UIAlertController.presentMessage(from: self, title: Strings.error, message: httpError.errorDescription ?? "No error description", okCompletion: nil, presentCompletion: nil)
+                }
+            }
+        }
+    }
+    
+    private func showApp() {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            let storyboard = UIStoryboard(name: "Tabbar", bundle: nil)
+            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+            delegate.window?.rootViewController = tabBarController
+            delegate.window?.rootViewController!.view.alpha = 0.0;
+            UIView.animate(withDuration: 0.5, animations: {
+                delegate.window?.rootViewController!.view.alpha = 1.0
+            })
+        }
+    }
+
 }
 
 //MARK: - UITextFieldDelegate

@@ -27,7 +27,7 @@ final class SearchController: UISearchController {
         delegate = searchResultsController
         searchBar.delegate = searchResultsController
         searchResultsUpdater = searchResultsController
-        searchBar.tintColor = .black
+        searchBar.tintColor = UIColor(named: "TabbarTextColor")
     }
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ final class SearchController: UISearchController {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3) {
-                self.view.backgroundColor = .white
+                self.view.backgroundColor = UIColor(named: "BackGroundBasicsColorLightDark")
             }
         }
     }

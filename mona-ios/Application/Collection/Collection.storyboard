@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OnU-EZ-hrx">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OnU-EZ-hrx">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,12 +14,12 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="9HV-mC-QRc" customClass="CollectionViewController" customModule="mona_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rYT-vf-eVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j5W-bh-O9L">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tNT-ke-b4C" customClass="CollectionViewLayout" customModule="mona_ios" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -26,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pas d'oeuvres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ppV-82-kSd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,20 +44,21 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header Collection View" id="fuU-wj-85v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSi-5L-j1O">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52.333333333333336"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0j-QL-fd8">
-                                                    <rect key="frame" x="8" y="8" width="134.5" height="30.5"/>
+                                                    <rect key="frame" x="8" y="7.9999999999999982" width="134.33333333333334" height="30.333333333333329"/>
+                                                    <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="26"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="TabbarTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixZ-bc-08l">
-                                                    <rect key="frame" x="150.5" y="19.5" width="224.5" height="8"/>
+                                                    <rect key="frame" x="150.33333333333334" y="19.333333333333332" width="263.66666666666663" height="8"/>
                                                     <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="Hgh-nE-1ko"/>
@@ -64,7 +66,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                             <constraints>
                                                 <constraint firstItem="u0j-QL-fd8" firstAttribute="leading" secondItem="kSi-5L-j1O" secondAttribute="leading" constant="8" id="9a6-dS-RDo"/>
                                                 <constraint firstAttribute="bottom" secondItem="u0j-QL-fd8" secondAttribute="bottom" constant="14" id="Fo3-Ov-rej"/>
@@ -83,7 +85,7 @@
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                         <constraints>
                             <constraint firstItem="j5W-bh-O9L" firstAttribute="top" secondItem="LAu-xx-2UQ" secondAttribute="top" id="3FH-Ak-es6"/>
                             <constraint firstItem="LAu-xx-2UQ" firstAttribute="trailing" secondItem="j5W-bh-O9L" secondAttribute="trailing" id="NLj-gF-9NE"/>
@@ -125,7 +127,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oBC-JN-WII">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -139,7 +141,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Collection Tabbar Default Image" width="25" height="24.5"/>
-        <image name="Collection Tabbar Selected Image" width="25" height="24.5"/>
+        <image name="Collection Tabbar Default Image" width="25" height="24.333333969116211"/>
+        <image name="Collection Tabbar Selected Image" width="25" height="24.333333969116211"/>
+        <namedColor name="BackGroundBasicsColorLightDark">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TabbarTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

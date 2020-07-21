@@ -346,7 +346,7 @@ final class ArtworksTableViewDataSource : NSObject, UITableViewDataSource, Table
     
     //MARK: - Table View Index Data Source
     func indexItems(for tableViewIndex: TableViewIndex) -> [UIView] {
-        tableViewIndex.tintColor = Style.indexTintColor
+        tableViewIndex.tintColor = UIColor(named: "TabbarTextColor")
         var sectionIndexViews = [UIView]()
         
         for section in sections {
@@ -374,7 +374,7 @@ final class ArtworksTableViewDataSource : NSObject, UITableViewDataSource, Table
                     section in
                     let label = UILabel()
                     label.font = Style.indexFont
-                    label.textColor = Style.indexTextColor
+                    label.textColor = UIColor(named: "TabbarTextColor")
                     if section.name == Strings.unknownDate {
                         label.text = Strings.unkn
                     }

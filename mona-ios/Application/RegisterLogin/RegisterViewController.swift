@@ -37,6 +37,7 @@ class RegisterViewController: UIViewController {
         setupLocalizedStringsForTheViewController()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapScreen))
         view.addGestureRecognizer(tapGesture)
+        
     }
     
     private func setupLocalizedStringsForTheViewController() {

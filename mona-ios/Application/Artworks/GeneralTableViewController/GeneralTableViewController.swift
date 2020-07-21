@@ -29,7 +29,8 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
     let artists = NSLocalizedString("artists", tableName: "GeneralTableViewController", bundle: .main, value: "", comment: "").capitalizingFirstLetter()
     let materials = NSLocalizedString("materials", tableName: "GeneralTableViewController", bundle: .main, value: "", comment: "").capitalizingFirstLetter()
     let techniques = NSLocalizedString("techniques", tableName: "GeneralTableViewController", bundle: .main, value: "", comment: "").capitalizingFirstLetter()
-    //MARK: Style for background view of header view stick navigation bar
+    
+    //MARK: Style for background view of header view stick navigation bar, the one with the letter
     let backgroundColorBackgroundViewOfHeaderViewStickingNavigationBar = UIColor(red: 250.0/255.0, green: 217.0/255.0, blue: 1.0/255.0, alpha: 1)
     let shadowColorBackgroundViewOfHeaderViewStickingNavigationBar = UIColor.gray.cgColor
     let shadowOffsetBackgroundViewOfHeaderViewStickingNavigationBar = CGSize(width: 0, height: 0.05)
@@ -37,6 +38,8 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
     let shadowOpacityBackgroundViewOfHeaderViewStickingNavigationBar : Float = 1
     let borderColorBackgroundViewOfHeaderViewStickingNavigationBar : UIColor = .lightGray
     let bottomBorderWidthBackgroundViewOfHeaderViewStickingNavigationBar : CGFloat = 0.5
+    
+    
     //MARK: Properties
     var canPerformTableViewIndexAnimation = true
     var items = [T]()
@@ -49,18 +52,23 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
         adjustTableViewInsets()
         DispatchQueue.main.async {
             let tableViewDataSource = GeneralTableViewDataSource(items: self.items)
+            
             self.tableViewDataSource = tableViewDataSource
             self.tableViewIndexDataSource = tableViewDataSource
+            
             self.tableView.dataSource = tableViewDataSource
             self.tableViewIndex.dataSource = tableViewDataSource
+            
             self.tableView.reloadData()
             self.tableViewIndex.reloadData()
         }
-        
+    
         tableView.delegate = self
+        
         let tableHeaderView = MainListHeaderView.loadFromNib()
         tableHeaderView.titleLabel.text = title
         tableView.tableHeaderView = tableHeaderView
+        
         let generalTableViewCellNib = UINib(nibName: String(describing: GeneralTableViewCell.self), bundle: .main)
         tableView.register(generalTableViewCellNib, forCellReuseIdentifier: GeneralTableViewCell.reuseIdentifier)
         tableViewIndex.delegate = self
@@ -69,7 +77,9 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
         tableViewIndex.indexOffset = UIOffset(horizontal: -4, vertical: 0)
         tableViewIndex.backgroundColor = .clear
         tableViewIndex.backgroundView.backgroundColor = .clear
+
         setTransparentNavigationBar(tintColor: .black)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +135,7 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
         
         tableViewHeaderFooterView.backgroundView?.backgroundColor = .clear
         tableViewHeaderFooterView.backgroundView?.layer.sublayers = nil
+        
     }
     
     func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
@@ -152,6 +163,7 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
     // lorsque que l'on scrolle
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        
         guard let heightTableHeaderView = tableView.tableHeaderView?.frame.height,
             let indexes = tableView.indexPathsForVisibleRows,
             !indexes.isEmpty else {
@@ -159,7 +171,10 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
         }
         
         // Show title if the user scrolled below the main tableHeaderView
+        /// New comment: This is just a bool that detect if the user scrolled
         let didTheUserScrolledBelowTableHeaderView = tableView.contentOffset.y >= heightTableHeaderView
+        
+        /// This will show the title of the category into the navigation bar
         switch (didTheUserScrolledBelowTableHeaderView, navigationItem.titleView) {
         case (true, let titleView) where titleView != nil:
             navigationItem.titleView = nil
@@ -170,11 +185,10 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
         }
         
         
-        
         if indexes[0].section == 0 && tableView.contentOffset.y < heightTableHeaderView {
             
-            tableView.headerView(forSection: 0)?.backgroundView?.backgroundColor = .clear
-            tableView.headerView(forSection: 0)?.backgroundView?.layer.sublayers = nil
+//            tableView.headerView(forSection: 0)?.backgroundView?.backgroundColor = .clear
+//            tableView.headerView(forSection: 0)?.backgroundView?.layer.sublayers = nil
             
             if canPerformTableViewIndexAnimation {
                 
@@ -218,21 +232,22 @@ final class GeneralTableViewController<T: ArtworksSettable & TextRepresentable>:
             }
             
             
-            backgroundViewOfHeaderViewStickingNavigationBar.backgroundColor = backgroundColorBackgroundViewOfHeaderViewStickingNavigationBar
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowColor = shadowColorBackgroundViewOfHeaderViewStickingNavigationBar
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOffset = shadowOffsetBackgroundViewOfHeaderViewStickingNavigationBar
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowRadius = shadowRadiusBackgroundViewOfHeaderViewStickingNavigationBar
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOpacity = shadowOpacityBackgroundViewOfHeaderViewStickingNavigationBar
-            backgroundViewOfHeaderViewStickingNavigationBar.addBottomBorderWithColor(
-                color: borderColorBackgroundViewOfHeaderViewStickingNavigationBar,
-                width: bottomBorderWidthBackgroundViewOfHeaderViewStickingNavigationBar)
-            backgroundViewOfHeaderViewStickingNavigationBar.addTopBorderWithColor(
-                color: borderColorBackgroundViewOfHeaderViewStickingNavigationBar,
-                width: bottomBorderWidthBackgroundViewOfHeaderViewStickingNavigationBar)
+//            backgroundViewOfHeaderViewStickingNavigationBar.backgroundColor = backgroundColorBackgroundViewOfHeaderViewStickingNavigationBar
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowColor = shadowColorBackgroundViewOfHeaderViewStickingNavigationBar
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOffset = shadowOffsetBackgroundViewOfHeaderViewStickingNavigationBar
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowRadius = shadowRadiusBackgroundViewOfHeaderViewStickingNavigationBar
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOpacity = shadowOpacityBackgroundViewOfHeaderViewStickingNavigationBar
+//            backgroundViewOfHeaderViewStickingNavigationBar.addBottomBorderWithColor(
+//                color: borderColorBackgroundViewOfHeaderViewStickingNavigationBar,
+//                width: bottomBorderWidthBackgroundViewOfHeaderViewStickingNavigationBar)
+//            backgroundViewOfHeaderViewStickingNavigationBar.addTopBorderWithColor(
+//                color: borderColorBackgroundViewOfHeaderViewStickingNavigationBar,
+//                width: bottomBorderWidthBackgroundViewOfHeaderViewStickingNavigationBar)
             
-            for i in 1..<indexes[0].count {
-                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.backgroundColor = .clear
-                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.layer.sublayers = nil
+            
+            for i in 1..<27 {
+//                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.backgroundColor = .clear
+//                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.layer.sublayers = nil
             }
             
         }

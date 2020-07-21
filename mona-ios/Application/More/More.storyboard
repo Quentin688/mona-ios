@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T1y-Xc-rUs">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T1y-Xc-rUs">
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,26 +18,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VILLERAY" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-yu-gph">
-                                <rect key="frame" x="16" y="128" width="343" height="26.5"/>
+                                <rect key="frame" x="16" y="108" width="343" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Villeray-Saint-Michel-Parc-Extension - Gris" translatesAutoresizingMaskIntoConstraints="NO" id="JtG-4I-v4C">
-                                <rect key="frame" x="67.5" y="198.5" width="240" height="128"/>
+                                <rect key="frame" x="67.5" y="178.5" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="DfX-AE-D4J"/>
                                     <constraint firstAttribute="width" constant="240" id="cF2-t3-QLO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21J-70-ufi">
-                                <rect key="frame" x="160" y="358.5" width="55" height="24"/>
+                                <rect key="frame" x="160" y="338.5" width="55" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="0.56862745100000001" green="0.61568627450000002" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oeuvres visitées" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-Dx-AoC">
-                                <rect key="frame" x="127" y="390.5" width="121.5" height="21"/>
+                                <rect key="frame" x="127" y="370.5" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,8 +78,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-rt-5Eq">
-                                <rect key="frame" x="1" y="64" width="374" height="538"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="1" y="44" width="374" height="558"/>
+                                <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="56" minimumInteritemSpacing="56" id="jVw-lI-OBT">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="284"/>
@@ -161,7 +160,7 @@ collectionnées</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                                     <constraints>
                                                         <constraint firstItem="Y8k-QR-mq1" firstAttribute="leading" secondItem="ajy-I0-9ki" secondAttribute="leading" id="N85-4u-KtZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="Y8k-QR-mq1" secondAttribute="trailing" id="mwF-Mr-H99"/>
@@ -169,12 +168,13 @@ collectionnées</string>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="69" id="xFW-rz-frf"/>
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XxI-Mw-3He">
-                                            <rect key="frame" x="208" y="101" width="150" height="162"/>
+                                            <rect key="frame" x="208.5" y="101" width="149.5" height="162"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="frh-bc-enE">
                                                     <rect key="frame" x="0.0" y="0.0" width="24.5" height="162"/>
@@ -206,28 +206,28 @@ collectionnées</string>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="mEa-i7-9XB">
-                                                    <rect key="frame" x="40.5" y="0.0" width="109.5" height="162"/>
+                                                    <rect key="frame" x="40.5" y="0.0" width="109" height="162"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="beaux-arts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPA-jz-5kg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="109.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="109" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="arts décoratifs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgG-Vy-gsG">
-                                                            <rect key="frame" x="0.0" y="46" width="109.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="46" width="109" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inconnnu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPk-VY-Zky">
-                                                            <rect key="frame" x="0.0" y="92" width="109.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="92" width="109" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="murales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wu9-MO-Qxi">
-                                                            <rect key="frame" x="0.0" y="138" width="109.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="138" width="109" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -235,6 +235,7 @@ collectionnées</string>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dMd-ze-gn9">
                                             <rect key="frame" x="8" y="295" width="358" height="26"/>
@@ -256,6 +257,7 @@ collectionnées</string>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -271,7 +273,7 @@ collectionnées</string>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                         <constraints>
                             <constraint firstItem="Lc0-eF-1JW" firstAttribute="trailing" secondItem="6gx-rt-5Eq" secondAttribute="trailing" id="2Ep-zT-THA"/>
                             <constraint firstItem="Lc0-eF-1JW" firstAttribute="bottom" secondItem="6gx-rt-5Eq" secondAttribute="bottom" constant="16" id="Usd-xk-r0j"/>
@@ -301,14 +303,14 @@ collectionnées</string>
                             <tableViewSection id="9UM-BF-NTQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="QaI-1N-AeV" style="IBUITableViewCellStyleDefault" id="3Ah-GX-4mq">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="18" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ah-GX-4mq" id="sz0-y8-cIa">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Badges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QaI-1N-AeV">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -321,14 +323,14 @@ collectionnées</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="327-Cw-sot" style="IBUITableViewCellStyleDefault" id="PSK-3v-KG0">
-                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PSK-3v-KG0" id="sSK-E1-aZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Targeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="327-Cw-sot">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -341,14 +343,14 @@ collectionnées</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="SS5-WC-5Ji" style="IBUITableViewCellStyleDefault" id="dvk-OD-X9D">
-                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="106" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dvk-OD-X9D" id="e1y-g0-AOc">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Data privacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SS5-WC-5Ji">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -361,14 +363,14 @@ collectionnées</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="HYf-Oo-dFz" style="IBUITableViewCellStyleDefault" id="5al-kE-zf3">
-                                        <rect key="frame" x="0.0" y="167" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5al-kE-zf3" id="MiD-Lp-lJy">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="About MONA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HYf-Oo-dFz">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -414,7 +416,7 @@ collectionnées</string>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vcB-FC-h7m">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -435,7 +437,7 @@ collectionnées</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amV-eS-hTP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02w-Km-It6" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="581.5"/>
@@ -447,52 +449,52 @@ collectionnées</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="130.5"/>
                                                         <string key="text">By using the Service, you are agreeing to the collection and use of your personal information as outlined in this Privacy Policy. We may change the Privacy Policy from time to time, and we encourage you to consult the Privacy Policy regularly for changes.</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What data do we collect?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jq-y7-f4M" userLabel="Subtitle Label">
                                                         <rect key="frame" x="0.0" y="138.5" width="359" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zat-yq-rno" userLabel="Body Label">
                                                         <rect key="frame" x="0.0" y="167" width="359" height="152.5"/>
                                                         <string key="text">We value your privacy and minimize the use of your personal data. We solely collect the data relevant to our research, meaning your photographs, ratings and comments of the artworks you visit. The data is stored anonymously on our university servers and is only accessible to our researchers.</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do we collect data?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg3-ID-pNS" userLabel="Subtitle Label">
                                                         <rect key="frame" x="0.0" y="327.5" width="359" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-ww-MjD" userLabel="Body Label">
                                                         <rect key="frame" x="0.0" y="356" width="359" height="86.5"/>
                                                         <string key="text">We are interested in studying people's interests in public art. We use the collected data in the context of academic research to understand how you perceive such artworks.</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your rights" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1F-tj-g3v" userLabel="Subtitle Label">
                                                         <rect key="frame" x="0.0" y="450.5" width="359" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-dd-t5K" userLabel="Body Label">
                                                         <rect key="frame" x="0.0" y="479" width="359" height="86.5"/>
                                                         <string key="text">You may ask us any questions regarding your data or request the complete deletion of your data on our server by contacting us at mona-app@tutanota.com</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="yTu-PL-ymW" secondAttribute="bottom" constant="8" id="64m-BK-kdJ"/>
                                             <constraint firstItem="yTu-PL-ymW" firstAttribute="top" secondItem="02w-Km-It6" secondAttribute="top" constant="8" id="8dE-hD-qKm"/>
@@ -509,7 +511,7 @@ collectionnées</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                         <constraints>
                             <constraint firstItem="02w-Km-It6" firstAttribute="height" secondItem="smU-GS-kxJ" secondAttribute="height" priority="250" id="DAL-14-yTW"/>
                             <constraint firstItem="amV-eS-hTP" firstAttribute="top" secondItem="0Ju-GM-McQ" secondAttribute="top" id="Kli-EL-oty"/>
@@ -543,13 +545,13 @@ collectionnées</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Y3-51-YOk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqy-ov-fx3" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1404.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1408.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cDq-iy-UTq">
-                                                <rect key="frame" x="8" y="8" width="359" height="1388.5"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="1392.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="322-QP-gGh" userLabel="Preamble">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="614.5"/>
@@ -561,45 +563,45 @@ MONA est un projet gratuit et open source visant à faire découvrir et appréci
 
 MONA est un projet de recherche universitaire basé à Montréal, Canada. Tel que détaillé dans la Politique de confidentialité, les données que nous recueillons ne servent qu'à des fins de recherche universitaire. Le projet est entièrement non commercial et aucun tiers n'y participe.</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Licences" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHB-Xu-4a9" userLabel="Licensing Title">
-                                                        <rect key="frame" x="0.0" y="622.5" width="359" height="31.5"/>
+                                                        <rect key="frame" x="0.0" y="622.5" width="359" height="33.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-Xk-8VB" userLabel="Licensing Body">
-                                                        <rect key="frame" x="0.0" y="662" width="359" height="350.5"/>
+                                                        <rect key="frame" x="0.0" y="664" width="359" height="350.5"/>
                                                         <string key="text">MONA est disponible dans l'AppStore sous la licence Apache Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0) : Copyright 2019 MONA
 
 Le design de MONA est sous licence Creative Commons Paternité 4.0 International Licence (https://creativecommons.org/licenses/by/4.0/)
 
 Les métadonnées des œuvres énumérées sont fournies par la Ville de Montréal sous la licence Creative Commons Paternité 4.0 (http://donnees.ville.montreal.qc.ca/dataset/art-public- information-sur-les-oeuvres-de-la-collection-municipale ; http://donnees.ville.montreal.qc.ca/dataset/murales)</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contributeurs" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq0-tS-Z67" userLabel="Contributors Title">
-                                                        <rect key="frame" x="0.0" y="1020.5" width="359" height="31.5"/>
+                                                        <rect key="frame" x="0.0" y="1022.5" width="359" height="33.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQV-UQ-RNb" userLabel="Contributors Body">
-                                                        <rect key="frame" x="0.0" y="1060" width="359" height="328.5"/>
+                                                        <rect key="frame" x="0.0" y="1064" width="359" height="328.5"/>
                                                         <string key="text">MONA a été créé avec le soutien du groupe de recherche "art+site", de la Faculté des arts et des sciences de l'Université de Montréal et de son Département d'histoire de l'art et d'études cinématographiques, en collaboration avec le Département d'informatique et de recherche opérationnelle et l'École de design de l'Université. Nous avons également reçu l'appui du Bureau d'art public de Montréal.
 
 Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager vos commentaires avec nous, n'hésitez pas à nous contacter à mona-app@tutanota.com. Nous aimerions avoir de vos nouvelles !</string>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="TabbarTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                         <constraints>
                                             <constraint firstItem="cDq-iy-UTq" firstAttribute="top" secondItem="tqy-ov-fx3" secondAttribute="top" constant="8" id="DEo-VR-Zn1"/>
                                             <constraint firstAttribute="trailing" secondItem="cDq-iy-UTq" secondAttribute="trailing" constant="8" id="Ira-6R-1nS"/>
@@ -616,7 +618,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                         <constraints>
                             <constraint firstItem="tqy-ov-fx3" firstAttribute="width" secondItem="K94-e9-oiI" secondAttribute="width" id="4WO-BH-mOZ"/>
                             <constraint firstItem="9Y3-51-YOk" firstAttribute="top" secondItem="PBS-tF-WNf" secondAttribute="top" id="NUH-Um-wu3"/>
@@ -648,7 +650,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-GK-9fX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="UVy-2z-awk">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -657,7 +659,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwS-eM-HkG">
                                             <rect key="frame" x="8" y="8" width="72" height="30.5"/>
                                             <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="26"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" name="TabbarTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yj-88-VwT">
@@ -669,7 +671,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                                     <constraints>
                                         <constraint firstItem="vwS-eM-HkG" firstAttribute="leading" secondItem="UVy-2z-awk" secondAttribute="leading" constant="8" id="2HG-xT-q6G"/>
                                         <constraint firstItem="vwS-eM-HkG" firstAttribute="centerY" secondItem="8yj-88-VwT" secondAttribute="centerY" id="BN0-6X-sge"/>
@@ -737,7 +739,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZ4-UM-hzZ" customClass="MYTableViewIndex">
-                                <rect key="frame" x="351" y="124" width="24" height="419"/>
+                                <rect key="frame" x="351" y="104" width="24" height="459"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -751,7 +753,7 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BackGroundBasicsColorLightDark"/>
                         <constraints>
                             <constraint firstItem="eZ4-UM-hzZ" firstAttribute="centerY" secondItem="4eM-r9-Eqs" secondAttribute="centerY" id="41Y-ra-QCP"/>
                             <constraint firstItem="Y1M-xr-JUA" firstAttribute="trailing" secondItem="Xcl-AI-iz0" secondAttribute="trailing" constant="16" id="GrP-2d-Fb2"/>
@@ -794,5 +796,11 @@ Si vous souhaitez contribuer à MONA sous quelque forme que ce soit et partager 
     </scenes>
     <resources>
         <image name="Villeray-Saint-Michel-Parc-Extension - Gris" width="997" height="465"/>
+        <namedColor name="BackGroundBasicsColorLightDark">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TabbarTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

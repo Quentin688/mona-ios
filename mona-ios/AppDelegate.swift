@@ -6,14 +6,17 @@
 //  Copyright © 2019 Paul Chaffanet. All rights reserved.
 //
 
-import UIKit
-import CoreData
-import SwiftyBeaver
-import Foundation
+
+import UIKit // Frameworks
+import Foundation // Frameworks
+import CoreData // Services
+import SwiftyBeaver // Logging
 import Photos
 
 let log = SwiftyBeaver.self
 
+
+// Arrays initialisation
 struct AppData {
     static var context = CoreDataStack.mainContext
     static var artists = [Artist]()
@@ -28,27 +31,26 @@ struct AppData {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     private var didStart = true
-    
-    private var timer : Timer?
-    // If internet is slow, this is useful in order to not repeat the upload task multiple times.
+    private var timer : Timer? // If internet is slow, this is useful in order to not repeat the upload task multiple times.
+    private var isCurrentlyUploading = [Int16 : [Request : Bool]]()
     
     private enum Request {
         case photo
         case rating
         case comment
     }
-    private var isCurrentlyUploading = [Int16 : [Request : Bool]]()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         setupLogger()
         setupPreferences()
-        
+            
         AppData.context.retainsRegisteredObjects = true
-        
+                
         // Mis là temporairement pour éviter la longueur de chargement à chaque lancement de l'application
         fetchData { result in
             switch result {
@@ -65,73 +67,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        
+        
         /*
-        Uncomment ce bloc de code là si on veut fetch les data et construire la base de données sans utiliser celle préchargée.
-        // Fetch Data
-        // Inutile d'avoir un token valide pour cela
-        fetchData { result in
-            switch result {
-            case .success():
-                if !AppData.artworks.isEmpty {
-                    self.updatePhotosArtworks(artworks: AppData.artworks)
-                    
-                    // Je dois attendre que tout charge
-                    self.setupArtworks { result in
-                        switch result {
-                        case .success():
-                            self.setupBadges { _ in
-                                self.handleSuccess()
-                            }
-                        case .failure:
-                            self.handleSuccess()
-                        }
-                    }
-                }
-                else {
-                    self.setupArtworks { result in
-                        switch result {
-                        case .success():
-                            self.setupBadges { result in
-                                switch result {
-                                case .success:
-                                    self.handleSuccess()
-                                case .failure(let error):
-                                    // Dire pourquoi y a erreur si nécessaire
-                                    fatalError(error.localizedDescription)
-                                }
-                            }
-                        case .failure(let error):
-                            // Dire pourquoi y a erreur si nécessaire
-                            fatalError(error.localizedDescription)
-                        }
-                    }
-                }
-                return
-            case .failure(let error):
-                // Dire pourquoi y a erreur par message si nécessaire
-                fatalError(error.localizedDescription)
-            }
-        }
-        */
+         Uncomment ce bloc de code là si on veut fetch les data et construire la base de données sans utiliser celle préchargée.
+         // Fetch Data
+         // Inutile d'avoir un token valide pour cela
+         fetchData { result in
+         switch result {
+         case .success():
+         if !AppData.artworks.isEmpty {
+         self.updatePhotosArtworks(artworks: AppData.artworks)
+         
+         // Je dois attendre que tout charge
+         self.setupArtworks { result in
+         switch result {
+         case .success():
+         self.setupBadges { _ in
+         self.handleSuccess()
+         }
+         case .failure:
+         self.handleSuccess()
+         }
+         }
+         }
+         else {
+         self.setupArtworks { result in
+         switch result {
+         case .success():
+         self.setupBadges { result in
+         switch result {
+         case .success:
+         self.handleSuccess()
+         case .failure(let error):
+         // Dire pourquoi y a erreur si nécessaire
+         fatalError(error.localizedDescription)
+         }
+         }
+         case .failure(let error):
+         // Dire pourquoi y a erreur si nécessaire
+         fatalError(error.localizedDescription)
+         }
+         }
+         }
+         return
+         case .failure(let error):
+         // Dire pourquoi y a erreur par message si nécessaire
+         fatalError(error.localizedDescription)
+         }
+         }
+         */
         
         return true
- 
+        
     }
-
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         if !didStart {
@@ -144,15 +150,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handlePhotoLibraryUsageStatus()
     }
     
+    
+    /**
+     This function is used to deal with the photo library usage.
+     */
     private func handlePhotoLibraryUsageStatus() {
         
         let status = PHPhotoLibrary.authorizationStatus()
         
         switch status {
+            
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization({ (status) in
                 self.handlePhotoLibraryUsageStatus()
             })
+            
         case .denied, .restricted:
             // Deal with it
             guard let visibleVC = UIApplication.topViewController() else {
@@ -179,6 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             },
                                              presentCompletion: nil)
             break
+            
         case .authorized:
             // All is good
             break
@@ -212,8 +225,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // On vérifie s'ils existent encore dans l'album photo MONA
             let localIdentifiersExist = MonaPhotosAlbum.shared.existInPhotoLibrary(localIdentifiers: localIdentifiers)
             guard   let localIdentifiersToRemoveSet = localIdentifiersExist[false],
-                    !localIdentifiersToRemoveSet.isEmpty else {
-                        continue
+                !localIdentifiersToRemoveSet.isEmpty else {
+                    continue
             }
             let photosToRemove = localIdentifiersToRemoveSet.map { localIdentifier in
                 return localIdentifiersPhotoDict[localIdentifier]!
@@ -229,22 +242,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         //self.saveContext()
     }
     
+    /**
+    This function set up the logger where the error message and warning will be sent. Basically, the console.
+     */
     private func setupLogger() {
         let console = ConsoleDestination()
         log.addDestination(console)
     }
     
+    /**
+     This function just set the preferences of the user. Not written by us. Default parameters are being used.
+     */
     private func setupPreferences() {
         UserDefaults.standard.defaultSetup()
     }
     
+    /**
+     / \ Description en cours d'écriture / \
+     fetchData s'occupe de créer dans un premier temps toutes les requêtes pour fetch les data en fonction de leur catégorie
+     Elle assigne ensuite à chaque catégorie de l'enum un array de data
+     Elle roule une fois, au lancement de l'app seulement
+     https://developer.apple.com/documentation/coredata/core_data_stack
+     */
     private func fetchData(completion: @escaping (Result<Void, Error>) -> Void) {
         let artworksFetchRequest = NSFetchRequest<Artwork>(entityName: "Artwork")
         let artistsFetchRequest = NSFetchRequest<Artist>(entityName: "Artist")
@@ -271,6 +297,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    /// Not being used at the moment
+    /// - Parameter completion: <#completion description#>
     private func setupArtworks(completion: @escaping (Result<Void, Error>) -> Void) {
         MonaAPI.shared.artworksv3 { result in
             switch result {
@@ -315,48 +343,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     /*
-    private func setupArtworks(completion: @escaping (Result<Void, Error>) -> Void) {
-        MonaAPI.shared.artworks { result in
-            switch result {
-            case .success(let artworksResponse):
-                if let artworksData = artworksResponse.data {
-                    let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-                    context.persistentStoreCoordinator = CoreDataStack.persistentStoreCoordinator
-                    artworksData.createOrUpdate(into: context)
-                   
-                    let artworksFetchRequest = NSFetchRequest<Artwork>(entityName: "Artwork")
-                    let artistsFetchRequest = NSFetchRequest<Artist>(entityName: "Artist")
-                    let categoriesFetchRequest = NSFetchRequest<Category>(entityName: "Category")
-                    let districtsFetchRequest = NSFetchRequest<District>(entityName: "District")
-                    let materialsFetchRequest = NSFetchRequest<Material>(entityName: "Material")
-                    let subcategoriesFetchRequest = NSFetchRequest<Subcategory>(entityName: "Subcategory")
-                    let techniquesFetchRequest = NSFetchRequest<Technique>(entityName: "Technique")
-                    
-                    do {
-                        try context.save()
-                        AppData.context.reset()
-                        AppData.artworks = try AppData.context.fetch(artworksFetchRequest)
-                        AppData.artists = try AppData.context.fetch(artistsFetchRequest)
-                        AppData.categories = try AppData.context.fetch(categoriesFetchRequest)
-                        AppData.districts = try AppData.context.fetch(districtsFetchRequest)
-                        AppData.materials = try AppData.context.fetch(materialsFetchRequest)
-                        AppData.subcategories = try AppData.context.fetch(subcategoriesFetchRequest)
-                        AppData.techniques = try AppData.context.fetch(techniquesFetchRequest)
-                        completion(.success(()))
-                    }
-                    catch let error as NSError {
-                        print("Save or fetch failed. \(error), \(error.userInfo)")
-                        completion(.failure(error))
-                    }
-                    
-                }
-            case .failure(let artworksError):
-                log.error(artworksError)
-                log.error(artworksError.localizedDescription)
-                completion(.failure(artworksError))
-            }
-        }
-    }*/
+     private func setupArtworks(completion: @escaping (Result<Void, Error>) -> Void) {
+     MonaAPI.shared.artworks { result in
+     switch result {
+     case .success(let artworksResponse):
+     if let artworksData = artworksResponse.data {
+     let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+     context.persistentStoreCoordinator = CoreDataStack.persistentStoreCoordinator
+     artworksData.createOrUpdate(into: context)
+     
+     let artworksFetchRequest = NSFetchRequest<Artwork>(entityName: "Artwork")
+     let artistsFetchRequest = NSFetchRequest<Artist>(entityName: "Artist")
+     let categoriesFetchRequest = NSFetchRequest<Category>(entityName: "Category")
+     let districtsFetchRequest = NSFetchRequest<District>(entityName: "District")
+     let materialsFetchRequest = NSFetchRequest<Material>(entityName: "Material")
+     let subcategoriesFetchRequest = NSFetchRequest<Subcategory>(entityName: "Subcategory")
+     let techniquesFetchRequest = NSFetchRequest<Technique>(entityName: "Technique")
+     
+     do {
+     try context.save()
+     AppData.context.reset()
+     AppData.artworks = try AppData.context.fetch(artworksFetchRequest)
+     AppData.artists = try AppData.context.fetch(artistsFetchRequest)
+     AppData.categories = try AppData.context.fetch(categoriesFetchRequest)
+     AppData.districts = try AppData.context.fetch(districtsFetchRequest)
+     AppData.materials = try AppData.context.fetch(materialsFetchRequest)
+     AppData.subcategories = try AppData.context.fetch(subcategoriesFetchRequest)
+     AppData.techniques = try AppData.context.fetch(techniquesFetchRequest)
+     completion(.success(()))
+     }
+     catch let error as NSError {
+     print("Save or fetch failed. \(error), \(error.userInfo)")
+     completion(.failure(error))
+     }
+     
+     }
+     case .failure(let artworksError):
+     log.error(artworksError)
+     log.error(artworksError.localizedDescription)
+     completion(.failure(artworksError))
+     }
+     }
+     }*/
     
     private func setupBadges(completion: @escaping (Result<Void, Error>) -> Void) {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -376,34 +404,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if badgesDict[id] != nil {
                     continue
                 }
+                
                 let badge = Badge(entity: badgeEntityDescription, insertInto: context)
                 badge.id = id
+                
                 let englishLocalizedStringName = LocalizedString(entity: localizedStringEntityDescription, insertInto: context)
                 let frenchLocalizedStringName = LocalizedString(entity: localizedStringEntityDescription, insertInto: context)
+                
                 englishLocalizedStringName.language = Language.en
                 frenchLocalizedStringName.language = Language.fr
+                
                 let name = dict["name"]! as! [Language : String]
+                
                 englishLocalizedStringName.localizedString = name[.en]!
                 frenchLocalizedStringName.localizedString = name[.fr]!
+                
                 badge.addToLocalizedNames(englishLocalizedStringName)
                 badge.addToLocalizedNames(frenchLocalizedStringName)
+                
                 badge.currentValue = Int16(dict["currentValue"]! as! Int)
                 badge.targetValue = Int16(dict["targetValue"]! as! Int)
                 badge.collectedImageName = dict["collectedImageName"]! as! String
                 badge.notCollectedImageName = dict["notCollectedImageName"]! as! String
+                
                 let englishLocalizedStringComment = LocalizedString(entity: localizedStringEntityDescription, insertInto: context)
                 let frenchLocalizedStringComment = LocalizedString(entity: localizedStringEntityDescription, insertInto: context)
+                
                 englishLocalizedStringComment.language = Language.en
                 frenchLocalizedStringComment.language = Language.fr
+                
                 let comments = dict["comment"]! as! [Language : String]
+                
                 englishLocalizedStringComment.localizedString = comments[.en]!
                 frenchLocalizedStringComment.localizedString = comments[.fr]!
+                
                 badge.addToComments(englishLocalizedStringComment)
                 badge.addToComments(frenchLocalizedStringComment)
             }
+            
             if context.hasChanges {
                 try context.save()
             }
+            
             let badgesFetchRequest = NSFetchRequest<Badge>(entityName: "Badge")
             AppData.badges = try AppData.context.fetch(badgesFetchRequest)
             completion(.success(()))
@@ -473,95 +515,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     // Because PUT Request not working for multipart/form-data with Laravel (i guess)....
                     /*
-                    if  artwork.photoSent == false,
-                        !isCurrentlyUploading[artwork.id]![.photo]!,
-                        let photosOrderedSet = artwork.photos,
-                        let lastPhotoAdded = photosOrderedSet.lastObject as? Photo,
-                        let asset = MonaPhotosAlbum.shared.fetchAsset(withLocalIdentifier: lastPhotoAdded.localIdentifier) {
-                        
-                        // Load image
-                        // Get image from asset
-                        manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option, resultHandler: {
-                            result, info in
-                            if let image = result {
-                                self.isCurrentlyUploading[artwork.id]![.photo] = true
-                                MonaAPI.shared.artwork(id: Int(artwork.id), rating: nil, comment: nil, photo: image) { result in
-                                    self.isCurrentlyUploading[artwork.id]![.photo] = false
-                                    switch result {
-                                    case .success(_):
-                                        log.info("Successful upload for artwork's photo with id: \(artwork.id).")
-                                        artwork.photoSent = true
-                                        do {
-                                            try AppData.context.save()
-                                        }
-                                        catch {
-                                            log.error("Failed to save context: \(error)")
-                                        }
-                                    case .failure(let userArtworkError):
-                                        log.error("Failed to upload photo for artwork with id: \(artwork.id).")
-                                        log.error(userArtworkError)
-                                        //log.error(userArtworkError.localizedDescription)
-                                    }
-                                }
-                            }
-                        })
-                    }
-                    
-                    if artwork.ratingSent == false && !isCurrentlyUploading[artwork.id]![.rating]! {
-                        isCurrentlyUploading[artwork.id]![.rating] = true
-                        MonaAPI.shared.artwork(id: Int(artwork.id), rating: Int(artwork.rating), comment: nil, photo: nil) { (result) in
-                            self.isCurrentlyUploading[artwork.id]![.rating] = false
-                            switch result {
-                            case .success(_):
-                                log.info("Rating \"\(artwork.rating)\" sent successfully for artwork with id: \(artwork.id).")
-                                artwork.ratingSent = true
-                                do {
-                                    try AppData.context.save()
-                                }
-                                catch {
-                                    log.error("Failed to save context: \(error)")
-                                }
-                            case .failure(let userArtworkError):
-                                log.error("Failed to send rating \"\(artwork.rating)\" for artwork with id: \(artwork.id).")
-                                log.error(userArtworkError)
-                                //log.error(userArtworkError.localizedDescription)
-                            }
-                        }
-                    }
-                    
-                    if artwork.commentSent == false &&  !isCurrentlyUploading[artwork.id]![.comment]! {
-                        isCurrentlyUploading[artwork.id]![.comment] = true
-                        MonaAPI.shared.artwork(id: Int(artwork.id), rating: nil, comment: artwork.comment, photo: nil) { (result) in
-                            self.isCurrentlyUploading[artwork.id]![.comment] = false
-                            switch result {
-                            case .success(_):
-                                log.info("Comment sent \"\(artwork.comment!)\" successfully for artwork with id: \(artwork.id).")
-                                artwork.commentSent = true
-                                do {
-                                    try AppData.context.save()
-                                }
-                                catch {
-                                    log.error("Failed to save context: \(error)")
-                                }
-                            case .failure(let userArtworkError):
-                                log.error("Failed to send comment \"\(artwork.comment!)\" for artwork with id: \(artwork.id).")
-                                log.error(userArtworkError)
-                                //log.error(userArtworkError.localizedDescription)
-                            }
-                        }
-                    }
+                     if  artwork.photoSent == false,
+                     !isCurrentlyUploading[artwork.id]![.photo]!,
+                     let photosOrderedSet = artwork.photos,
+                     let lastPhotoAdded = photosOrderedSet.lastObject as? Photo,
+                     let asset = MonaPhotosAlbum.shared.fetchAsset(withLocalIdentifier: lastPhotoAdded.localIdentifier) {
+                     
+                     // Load image
+                     // Get image from asset
+                     manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option, resultHandler: {
+                     result, info in
+                     if let image = result {
+                     self.isCurrentlyUploading[artwork.id]![.photo] = true
+                     MonaAPI.shared.artwork(id: Int(artwork.id), rating: nil, comment: nil, photo: image) { result in
+                     self.isCurrentlyUploading[artwork.id]![.photo] = false
+                     switch result {
+                     case .success(_):
+                     log.info("Successful upload for artwork's photo with id: \(artwork.id).")
+                     artwork.photoSent = true
+                     do {
+                     try AppData.context.save()
+                     }
+                     catch {
+                     log.error("Failed to save context: \(error)")
+                     }
+                     case .failure(let userArtworkError):
+                     log.error("Failed to upload photo for artwork with id: \(artwork.id).")
+                     log.error(userArtworkError)
+                     //log.error(userArtworkError.localizedDescription)
+                     }
+                     }
+                     }
+                     })
+                     }
+                     
+                     if artwork.ratingSent == false && !isCurrentlyUploading[artwork.id]![.rating]! {
+                     isCurrentlyUploading[artwork.id]![.rating] = true
+                     MonaAPI.shared.artwork(id: Int(artwork.id), rating: Int(artwork.rating), comment: nil, photo: nil) { (result) in
+                     self.isCurrentlyUploading[artwork.id]![.rating] = false
+                     switch result {
+                     case .success(_):
+                     log.info("Rating \"\(artwork.rating)\" sent successfully for artwork with id: \(artwork.id).")
+                     artwork.ratingSent = true
+                     do {
+                     try AppData.context.save()
+                     }
+                     catch {
+                     log.error("Failed to save context: \(error)")
+                     }
+                     case .failure(let userArtworkError):
+                     log.error("Failed to send rating \"\(artwork.rating)\" for artwork with id: \(artwork.id).")
+                     log.error(userArtworkError)
+                     //log.error(userArtworkError.localizedDescription)
+                     }
+                     }
+                     }
+                     
+                     if artwork.commentSent == false &&  !isCurrentlyUploading[artwork.id]![.comment]! {
+                     isCurrentlyUploading[artwork.id]![.comment] = true
+                     MonaAPI.shared.artwork(id: Int(artwork.id), rating: nil, comment: artwork.comment, photo: nil) { (result) in
+                     self.isCurrentlyUploading[artwork.id]![.comment] = false
+                     switch result {
+                     case .success(_):
+                     log.info("Comment sent \"\(artwork.comment!)\" successfully for artwork with id: \(artwork.id).")
+                     artwork.commentSent = true
+                     do {
+                     try AppData.context.save()
+                     }
+                     catch {
+                     log.error("Failed to save context: \(error)")
+                     }
+                     case .failure(let userArtworkError):
+                     log.error("Failed to send comment \"\(artwork.comment!)\" for artwork with id: \(artwork.id).")
+                     log.error(userArtworkError)
+                     //log.error(userArtworkError.localizedDescription)
+                     }
+                     }
+                     }
                      */
                 }
             }
         }
         else if  let username = UserDefaults.Credentials.get(forKey: .username),
-                 let password = UserDefaults.Credentials.get(forKey: .password) {
+            let password = UserDefaults.Credentials.get(forKey: .password) {
             MonaAPI.shared.login(username: username, password: password) { result in
                 switch result {
                 case .success(let loginResponse):
                     UserDefaults.Credentials.set(loginResponse.token, forKey: .token)
                 case .failure(let httpError):
-                // Show login error
+                    // Show login error
                     log.error(httpError)
                     
                 }
@@ -570,6 +612,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    /// This function is called, for the moment, at the opening of the app to check the credential of the user.
+    /// Long term change would be to be called at each login when asking user's ID
     private func handleSuccess() {
         if  let _ = UserDefaults.Credentials.get(forKey: .username),
             let _ = UserDefaults.Credentials.get(forKey: .password) {
@@ -586,6 +630,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    /// Showing the homepage of the appp
     private func showApp() {
         let storyboard = UIStoryboard(name: "Tabbar", bundle: nil)
         let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
@@ -596,6 +641,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
+    /// Function called the first time the app is open. It gives people the possibility to create their username.
     private func showUsernameChoice() {
         let storyboard = UIStoryboard(name: "RegisterLogin", bundle: nil)
         let usernameChoiceVC = storyboard.instantiateViewController(withIdentifier: "UsernameChoiceViewController") as! UsernameChoiceViewController
@@ -605,5 +651,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController!.view.alpha = 1.0
         })
     }
-
+    
 }

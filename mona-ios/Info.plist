@@ -25,7 +25,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires usage of your camera to take pictures of the artworks.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app requires location services to localize you on the artwork's map.</string>
+	<string>This app requires location services to localize you on the artwork&apos;s map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires usage of your photo library to save pictures of the artworks.</string>
 	<key>UIMainStoryboardFile</key>

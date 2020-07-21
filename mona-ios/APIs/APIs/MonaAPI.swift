@@ -12,6 +12,7 @@ struct MonaAPI {
     
     static var shared = MonaAPI()
     var baseURLString: String = "https://picasso.iro.umontreal.ca/~mona/api"
+    
     var apiToken : String? = {
         return UserDefaults.Credentials.get(forKey: .token)
     }()

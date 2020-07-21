@@ -314,8 +314,8 @@ extension ArtworksTableViewController : UIScrollViewDelegate {
 
         if indexes[0].section == 0 && tableView.contentOffset.y < heightTableHeaderView {
             
-            tableView.headerView(forSection: 0)?.backgroundView?.backgroundColor = .clear
-            tableView.headerView(forSection: 0)?.backgroundView?.layer.sublayers = nil
+//            tableView.headerView(forSection: 0)?.backgroundView?.backgroundColor = .clear
+//            tableView.headerView(forSection: 0)?.backgroundView?.layer.sublayers = nil
             
             if canPerformTableViewIndexAnimation {
                 
@@ -352,24 +352,24 @@ extension ArtworksTableViewController : UIScrollViewDelegate {
                 })
             }
             
-            // Header View stick at navigation bar
-            guard let headerViewStickingNavigationBar = tableView.headerView(forSection: indexes[0].section), let backgroundViewOfHeaderViewStickingNavigationBar = headerViewStickingNavigationBar.backgroundView else {
-                return
-            }
+//             Header View stick at navigation bar
+//            guard let headerViewStickingNavigationBar = tableView.headerView(forSection: indexes[0].section), let backgroundViewOfHeaderViewStickingNavigationBar = headerViewStickingNavigationBar.backgroundView else {
+//                return
+//            }
             
             
-            backgroundViewOfHeaderViewStickingNavigationBar.backgroundColor = Style.BackgroundViewOfHeaderViewStickingNavigationBar.backgroundColor
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowColor = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowColor
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOffset = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowOffset
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowRadius = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowRadius
-            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOpacity = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowOpacity
-            backgroundViewOfHeaderViewStickingNavigationBar.addBottomBorderWithColor(color: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderColor, width: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderWidth)
-            backgroundViewOfHeaderViewStickingNavigationBar.addTopBorderWithColor(color: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderColor, width: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderWidth)
-            
-            for i in 1..<indexes[0].count {
-                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.backgroundColor = .clear
-                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.layer.sublayers = nil
-            }
+//            backgroundViewOfHeaderViewStickingNavigationBar.backgroundColor = Style.BackgroundViewOfHeaderViewStickingNavigationBar.backgroundColor
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowColor = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowColor
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOffset = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowOffset
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowRadius = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowRadius
+//            backgroundViewOfHeaderViewStickingNavigationBar.layer.shadowOpacity = Style.BackgroundViewOfHeaderViewStickingNavigationBar.shadowOpacity
+//            backgroundViewOfHeaderViewStickingNavigationBar.addBottomBorderWithColor(color: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderColor, width: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderWidth)
+//            backgroundViewOfHeaderViewStickingNavigationBar.addTopBorderWithColor(color: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderColor, width: Style.BackgroundViewOfHeaderViewStickingNavigationBar.bottomBorderWidth)
+//
+//            for i in 1..<indexes[0].count {
+//                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.backgroundColor = .clear
+//                tableView.headerView(forSection: indexes[0].section + i)?.backgroundView?.layer.sublayers = nil
+//            }
             
         }
     }

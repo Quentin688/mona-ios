@@ -89,6 +89,7 @@ class MainTableViewController: SearchViewController {
     private func setupViewController () {
         if title == nil {
             title = Strings.artworksTrunc
+        
         }
         setTransparentNavigationBar(tintColor: .black)
         

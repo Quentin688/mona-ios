@@ -43,6 +43,7 @@ final class LegendPopoverViewController: UIViewController {
         collectedButton.isSelected = collectedButtonIsSelected
         unvisitedButton.isSelected = unvisitedButtonIsSelected
         targetedButton.isSelected = targetedButtonIsSelected
+         
     }
     
     @IBAction func legendTapped(_ sender: UIButton) {

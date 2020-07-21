@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+/**
+ This class is managing the color bar next to the title in '"artworks"
+ */
 final class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
@@ -20,8 +24,9 @@ final class MainTableViewCell: UITableViewCell {
             static let selectedBackgroundColor : UIColor = .white
         }
         
+        // Modification de la couleur des labels du menu Artwork
         struct Label {
-            static let unselectedTextColor : UIColor = .black
+            static let unselectedTextColor : UIColor = UIColor(named: "TabbarTextColor")!
             static let selectedTextColor : UIColor = .lightGray
         }
         

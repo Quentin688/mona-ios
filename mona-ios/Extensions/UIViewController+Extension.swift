@@ -10,13 +10,19 @@ import UIKit
 
 extension UIViewController {
     
+    /**
+    Maybe this function will be deleted later. Being changed for Dark mode :)
+     */
     func setTransparentNavigationBar(tintColor: UIColor) {
         navigationItem.titleView = UIView()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
-        navigationController?.navigationBar.tintColor = tintColor
+        navigationController?.navigationBar.tintColor = UIColor(named: "TabbarTextColor")
+
+        
+        
     }
     
     func setDefaultIosNavigationBar(tintColor: UIColor) {

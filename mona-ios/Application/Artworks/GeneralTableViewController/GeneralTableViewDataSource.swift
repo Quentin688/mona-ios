@@ -62,7 +62,7 @@ final class GeneralTableViewDataSource<T: ArtworksSettable & TextRepresentable>:
             section -> UILabel in
             let label = UILabel()
             label.font = UIFont.boldSystemFont(ofSize: 12)
-            label.textColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+            label.textColor = UIColor(named: "TabbarTextColor")
             label.text = section.name
             return label
         })

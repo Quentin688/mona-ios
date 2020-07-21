@@ -190,10 +190,10 @@ extension SearchResultsController : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if tableView.numberOfSections == 0 {
-            tableView.backgroundColor = .white
+            tableView.backgroundColor = UIColor(named: "BackGroundBasicsColorLightDark")
         }
         else {
-            tableView.backgroundColor = UIColor.init(red: 211, green: 211, blue: 211, alpha: 1)
+            tableView.backgroundColor = UIColor(named: "BackGroundBasicsColorLightDark")
         }
     }
     

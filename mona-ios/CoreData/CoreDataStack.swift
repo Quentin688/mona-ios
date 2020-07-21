@@ -5,6 +5,10 @@
 //  Created by Paul Chaffanet on 2019-05-10.
 //  Copyright © 2019 Paul Chaffanet. All rights reserved.
 //
+// Find more informations about the creation of this page on https://developer.apple.com/documentation/coredata/setting_up_a_core_data_stack/setting_up_a_core_data_stack_manually
+// https://developer.apple.com/documentation/coredata
+//
+// The variables as they are written below are computed variables. Informations can be found at https://docs.swift.org/swift-book/LanguageGuide/Properties.html
 
 import Foundation
 import UIKit
@@ -33,10 +37,11 @@ class CoreDataStack {
         // Create the coordinator
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
         let url = applicationDocumentsDirectory.appendingPathComponent("Model.sqlite") // type your database name here...
-
+        
         // Copy the data
         if !FileManager.default.fileExists(atPath: url.path) {
             print("Bundle url: \(Bundle.main.bundlePath)")
+            
             let sourceSqliteURLs = [
                 Bundle.main.url(forResource: "Model", withExtension: "sqlite")!,
                 Bundle.main.url(forResource: "Model", withExtension: "sqlite-shm")!,
@@ -58,7 +63,7 @@ class CoreDataStack {
                 }
             }
         }
-        
+                
         // Create the store
         var failureReason = "There was an error creating or loading the application's saved data."
         let options = [
