@@ -25,7 +25,7 @@ extension MonaAPI {
         // HTTP body of the request
         var body: Data?
         
-        // Init the body of the request with the parameters username, email and password
+        // Init the body of the request with the parameters ID, rating and picture
         init(id: Int, rating: Int? = nil, comment: String? = nil, photo: UIImage?) {
             let boundary = generateBoundary()
             // Headers
